@@ -1,6 +1,6 @@
 # Stock-Market-Prediction-Using-Machine-Learning
 
-In this pproject, the main objective is to find the best stock market prediction system to predict the financial
+In this project, the main objective is to find the best stock market prediction system to predict the financial
 prices of the stock market. This project implements a time series analysis approach that combines with
 machine learning algorithms and deep learning techniques. Algorithms that are regression-based such as
 linear regression and support vector regression are implemented throughout this project. Moreover, time
