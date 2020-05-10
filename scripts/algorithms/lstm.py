@@ -62,9 +62,6 @@ stock_name = 'Sainsbury'
 csv_stock_name = 'SBRY.L.CSV'
 csv_filepath = '../../datasets/UK Stock Data/' + time_period_directory
 
-### HOW MANY NEXT FOLLOWING DAYS DO YOU WANT TO BE PREDICTED
-num_of_days_predicted = 7
-
 ### SAVE TIME PERIOD IN NEW VARIABLE
 x = re.match("(.+)_(.+)/", str(time_period_directory))
 time_period = str(x.group(1)) + ' ' + str(x.group(2))
@@ -84,8 +81,6 @@ model_filename = 'lstm.pkl'
 model_name = 'LSTM'
 model_summary_directory = '../.././' 
 model_summary_filename = 'Model Summary.xlsx'
-
-is_forecast_future_price = False
 
 ########################################################
 ########################################################
@@ -444,74 +439,6 @@ def lstm_predict(scaler, train_data, test_data, train_date, test_date):
     ## Call the visualize_results function to visualize the results made by 
     visualize_results(updated_train_date, updated_test_date, test_date, test_data, y_train, original_y_test, y_pred)
 
-def lstm_forecast_future_prices(scaler, train_data, test_data, train_date, test_date):
-    num_days = num_of_days_predicted
-
-    loaded_model = pickle.load(open(model_filename, 'rb'))
-
-    ## Split train and test data
-    x_train, y_train = split_sequences(train_data, timesteps)
-    x_test, y_test = split_sequences(test_data, timesteps)
-
-    ### Prepare train data for fitting the model
-    ## Convert to numpy array
-    x_train = np.array(x_train)
-    y_train = np.array(y_train)
-
-    ## Reshape x train to feed into the LSTM model: rows, timesteps, number of features
-    x_train = np.reshape(x_train, (x_train.shape[0], timesteps, 1))
-
-    ################################################### MAKE PREDICTION
-
-    ## Store the original test values for plotting the predictions
-    y_test = y_test[:num_days]
-    y_test = np.array(y_test).reshape(len(y_test),1)
-    original_y_test = scaler.inverse_transform(y_test)       
-    print(original_y_test)                                                                       
-
-    x_test = np.array(x_test)
-    y_test = np.array(y_test)
-
-    ## Reshape x_test to be predicted by the LSTM model: rows, timesteps, number of features
-    x_test = np.reshape(x_test, (x_test.shape[0], timesteps, 1))
-    print('== PREVIEW TEST DATA BEFORE PREDICTED BEFORE LSTM MODEL ==')
-    print('X_test shape: ' + str(x_test.shape))
-    print('Y_test shape: ' + str(y_test.shape))
-    print('X_test:\n' + str(scaler.inverse_transform(x_test[0]))) 
-    print('Y_test:\n' + str(scaler.inverse_transform(y_test[0].reshape(-1,1))))
-
-    ## Predict the prices with the model
-    y_pred = loaded_model.predict(x_test)
-    y_pred = scaler.inverse_transform(y_pred)
-
-    mae, mape, rmse = evaluate_model(original_y_test, y_pred)
-
-    print('== LSTM MODEL - PERFORMANCE REPORT ==')
-    print('MAE: %.3f' % (mae))
-    print('MAPE: %.3f' % (mape))
-    print('RMSE: %.3f' % (rmse))
-    print('===========================================')
-
-    ################################################### RESULTS VISUALIZATION
-
-    ## Inverse transform y_train and test_data for plotting
-    y_train = np.array(y_train).reshape(len(y_train),1)
-    y_train = scaler.inverse_transform(y_train)
-    test_data = np.array(test_data).reshape(len(test_data),1)
-    test_data = scaler.inverse_transform(test_data)
-
-    ## Update the original date based on the timesteps for visualization
-    updated_train_date = []
-    for i in range(timesteps, len(train_date)): 
-        updated_train_date.append(train_date[i]) 
-
-    updated_test_date = []
-    for i in range(timesteps, len(test_date)): 
-        updated_test_date.append(test_date[i])
-
-    ## Call the visualize_results function to visualize the results made by 
-    visualize_results(updated_train_date, updated_test_date, test_date, test_data, y_train, original_y_test, y_pred)
-
 ## SAVING THE MODEL SUMMARY FOR MODEL COMPARISON
 def save_model_summary(stock_name, time_period, feature, hyperparameter, mae, mape, rmse):
     model_summary = {
@@ -545,40 +472,31 @@ def save_model_summary(stock_name, time_period, feature, hyperparameter, mae, ma
 
 ## MAIN FUNCTION
 def main():
+    while True:
+        try:
+            train_or_load_model = int(input('Do you want to load the saved model?\n1. YES\n2. NO\nChoose (1/2): '))
+            if train_or_load_model != 1 and train_or_load_model != 2:
+                print('Wrong input, try again..')
+                print('-------------------------')
+            else:
+                if train_or_load_model == 1:
+                    use_saved_model = True
+                elif train_or_load_model == 2:
+                    use_saved_model = False
+                break
+        except Exception as err:
+            print('Wrong input: ' + str(err))
+            continue
+
     SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE = prepare_data()
 
-    main_question = input('Choose the options below:\n1. FORECAST FUTURE STOCK PRICE\n2. EVALUATE LSTM MODEL\nYour Answer (1/2): ')
-    if main_question == '1':
-        is_forecast_future_price = True
-        lstm_forecast_future_prices(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
+    print('------------------------------')
+    if use_saved_model == False:
+        build_lstm_model(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
+    elif use_saved_model == True:
+        print('Load the ARIMA model..')   
+        lstm_predict(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
 
-    elif main_question == '2':
-        is_forecast_future_price = False
-
-        while True:
-            try:
-                train_or_load_model = int(input('Do you want to load the saved model?\n1. YES\n2. NO\nChoose (1/2): '))
-                if train_or_load_model != 1 and train_or_load_model != 2:
-                    print('Wrong input, try again..')
-                    print('-------------------------')
-                else:
-                    if train_or_load_model == 1:
-                        use_saved_model = True
-                    elif train_or_load_model == 2:
-                        use_saved_model = False
-                    break
-            except Exception as err:
-                print('Wrong input: ' + str(err))
-                continue
-
-        print('------------------------------')
-        if use_saved_model == False:
-            build_lstm_model(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
-        elif use_saved_model == True:
-            print('Load the ARIMA model..')   
-            lstm_predict(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
-
-    
     # SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE = prepare_data()
     # build_lstm_model(SCALER, TRAIN_DATA, TEST_DATA, TRAIN_DATE, TEST_DATE)
     
