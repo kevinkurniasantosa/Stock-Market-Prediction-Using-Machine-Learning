@@ -1,0 +1,104 @@
+2019-12-19 12:04:19,809 - INFO - START
+2019-12-19 12:05:30,758 - INFO - END
+2019-12-19 12:06:54,271 - INFO - START
+2019-12-19 12:06:56,787 - INFO - Error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2019-12-19 12:09:47,886 - INFO - START
+2019-12-19 12:11:00,366 - INFO - END
+2020-02-07 13:22:02,727 - INFO - START
+2020-02-07 13:22:28,411 - INFO - Error: Message: 
+
+2020-02-07 13:22:51,366 - INFO - Error: Message: 
+
+2020-02-23 17:02:01,322 - INFO - START
+2020-02-23 17:02:01,331 - INFO - ERROR (main()): [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\zenbook\\Desktop\\UON\\Dissertation\\Stock-market-prediction\\UK Stock Data\\TSCO.L.csv'
+2020-02-23 17:02:24,372 - INFO - Error while sending the email: (421, b'Cannot connect to SMTP server 66.102.1.108 (66.102.1.108:587), connect error 10060')
+2020-02-23 17:02:24,372 - INFO - -------------
+2020-02-23 17:02:24,374 - INFO - Stock: BARC.L, HSBA.L, SBRY.L, LLOY.L | Download Failed
+2020-02-23 17:02:24,377 - INFO - Notify me!
+2020-02-23 17:03:22,415 - INFO - START
+2020-02-23 17:03:49,712 - INFO - Error: Message: 
+
+2020-02-23 17:17:57,653 - INFO - START
+2020-02-23 17:18:52,651 - INFO - ERROR (main()): HTTPConnectionPool(host='127.0.0.1', port=53705): Max retries exceeded with url: /session/ff54cd6024d6e173949fda5cdb01ca9a/source (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001C444693BA8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-02-23 17:19:15,717 - INFO - Error while sending the email: (421, b'Cannot connect to SMTP server 66.102.1.109 (66.102.1.109:587), connect error 10060')
+2020-02-23 17:19:15,719 - INFO - -------------
+2020-02-23 17:19:15,725 - INFO - Stock: TSCO.L, SBRY.L | Download Failed
+2020-02-23 17:19:15,726 - INFO - Notify me!
+2020-02-23 17:19:38,748 - INFO - Error while sending the email: (421, b'Cannot connect to SMTP server 66.102.1.109 (66.102.1.109:587), connect error 10060')
+2020-02-23 17:19:38,750 - INFO - 
+END
+2020-02-23 17:20:42,632 - INFO - START
+2020-02-23 17:22:18,553 - INFO - START
+2020-02-23 17:23:12,823 - INFO - 
+END
+2020-04-21 17:20:43,719 - INFO - START
+2020-04-21 17:22:50,667 - INFO - -------------
+2020-04-21 17:22:50,667 - INFO - Stock: BARC.L, TSCO.L, SBRY.L | Download Failed
+2020-04-21 17:22:50,671 - INFO - Notify me!
+2020-04-21 17:23:26,674 - INFO - 
+END
+2020-04-21 17:43:28,025 - INFO - START
+2020-04-21 17:46:41,295 - INFO - START
+2020-04-21 17:47:55,678 - INFO - START
+2020-04-21 17:48:51,326 - INFO - 
+END
+2020-04-26 18:17:36,380 - INFO - START
+2020-04-26 18:18:26,990 - INFO - 
+END
+2020-04-26 18:54:14,876 - INFO - START
+2020-04-26 18:54:14,880 - INFO - ERROR (main()): local variable 'time_period' referenced before assignment
+2020-04-26 18:54:14,881 - INFO - -------------
+2020-04-26 18:54:14,881 - INFO - Stock: BARC.L, TSCO.L, SBRY.L | Download Failed
+2020-04-26 18:54:14,881 - INFO - 
+END
+2020-04-26 18:55:04,271 - INFO - START
+2020-04-26 18:55:04,274 - INFO - ERROR (main()): local variable 'time_period' referenced before assignment
+2020-04-26 18:55:04,275 - INFO - -------------
+2020-04-26 18:55:04,275 - INFO - Stock: BARC.L, TSCO.L, SBRY.L | Download Failed
+2020-04-26 18:55:04,276 - INFO - 
+END
+2020-04-26 18:57:37,705 - INFO - START
+2020-04-26 18:57:49,518 - INFO - Error: HTTPConnectionPool(host='127.0.0.1', port=60491): Max retries exceeded with url: /session/7838ec33e401fc8510295dac426373b7/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B0D4605080>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-04-26 18:57:59,550 - INFO - ERROR (main()): HTTPConnectionPool(host='127.0.0.1', port=60491): Max retries exceeded with url: /session/7838ec33e401fc8510295dac426373b7/source (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B0D4605940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-04-26 18:57:59,551 - INFO - -------------
+2020-04-26 18:57:59,552 - INFO - Stock: BARC.L, TSCO.L, SBRY.L | Download Failed
+2020-04-26 18:57:59,554 - INFO - 
+END
+2020-04-26 18:58:16,040 - INFO - START
+2020-04-26 18:59:03,414 - INFO - 
+END
+2020-04-26 19:02:08,451 - INFO - START
+2020-04-26 19:05:19,314 - INFO - START
+2020-04-26 19:08:19,188 - INFO - 
+END
+2020-04-26 19:08:26,083 - INFO - START
+2020-04-26 19:08:27,272 - INFO - Error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2020-04-26 19:08:37,326 - INFO - ERROR (main()): HTTPConnectionPool(host='127.0.0.1', port=61488): Max retries exceeded with url: /session/b38201da6145604f362d972cac35676b/source (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271A24E4390>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-04-26 19:08:37,326 - INFO - -------------
+2020-04-26 19:08:37,327 - INFO - Stock: BARC.L, TSCO.L, SBRY.L | Download Failed
+2020-04-26 19:08:37,330 - INFO - 
+END
+2020-04-26 19:08:57,651 - INFO - START
+2020-04-26 19:12:22,413 - INFO - START
+2020-04-26 19:13:14,317 - INFO - 
+END
+2020-04-26 19:15:03,991 - INFO - START
+2020-04-26 19:15:55,660 - INFO - 
+END
+2020-04-26 19:21:03,849 - INFO - START
+2020-04-26 19:22:06,097 - INFO - START
+2020-04-26 19:22:29,489 - INFO - START
+2020-04-26 19:27:30,832 - INFO - START
+2020-04-26 19:30:58,448 - INFO - START
+2020-04-26 19:35:04,705 - INFO - START
+2020-05-04 02:59:48,197 - INFO - START
+2020-05-04 03:02:18,766 - INFO - START
+2020-05-04 03:03:37,765 - INFO - START
+2020-05-04 03:12:31,280 - INFO - START
+2020-05-04 03:13:22,749 - INFO - 
+END
+2020-05-04 03:15:28,477 - INFO - START
+2020-05-04 03:17:43,762 - INFO - START
+2020-05-04 03:18:34,158 - INFO - 
+END
+2020-05-04 14:31:22,264 - INFO - START
