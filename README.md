@@ -10,3 +10,19 @@ these models. Historical data includes twelve months and five years of data for 
 used for the experiment. In addition, the target variable is the close price since it is determined for profit
 and loss analysis. Hence, the project is attempting to forecast a close price at a certain time based on the
 historical stock prices using different kinds of machine learning models.
+
+Example result:
+
+ARIMA Model on 5 years Sainsbury data
+<img src="results/sainsbury/arima/best-arima-model-result-comparison-sainsbury-5y.png">
+
+<img src="results/sainsbury/arima/best-arima-model-overall-view-sainsbury-5y">
+
+LSTM Model on 5 years Tesco data
+<img src="results/tesco/lstm/test12-result-comparison-tesco-5y.png">
+
+<img src="results/tesco/lstm/test12-overall-view-tesco-5y.png">
+
+Conclusion:
+
+Both LSTM and ARIMA are suitable algorithms for predicting the stock market price based on the historical price data. As other research papers suggested, LSTM and ARIMA do have a lot of potential when dealing with time series forecasting. Hence, these algorithms will be a great asset for traders, investors and analysts to make profitable investment decisions in the stock market. For future work, the idea is to add other variables such as open price, high price, low price, volume and news/sentiment analysis to predict current stock price.
