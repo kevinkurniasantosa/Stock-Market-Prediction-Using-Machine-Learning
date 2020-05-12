@@ -28,3 +28,5 @@ LSTM Model on 5 years Tesco data
 Conclusion:
 
 Both LSTM and ARIMA are suitable algorithms for predicting the stock market price based on the historical price data. As other research papers suggested, LSTM and ARIMA do have a lot of potential when dealing with time series forecasting. Hence, these algorithms will be a great asset for traders, investors and analysts to make profitable investment decisions in the stock market. For future work, the idea is to add other variables such as open price, high price, low price, volume and news/sentiment analysis to predict current stock price.
+
+© 2020 Kevin Kurnia Santosa. All rights reserved.
