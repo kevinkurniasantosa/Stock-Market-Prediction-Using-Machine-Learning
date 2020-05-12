@@ -11,6 +11,8 @@ used for the experiment. In addition, the target variable is the close price sin
 and loss analysis. Hence, the project is attempting to forecast a close price at a certain time based on the
 historical stock prices using different kinds of machine learning models.
 
+Python v3.6.8
+
 Example result:
 
 ARIMA Model on 5 years Sainsbury data
