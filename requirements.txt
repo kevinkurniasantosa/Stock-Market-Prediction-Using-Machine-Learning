@@ -2,7 +2,7 @@ matplotlib==3.1.1
 numpy==1.17.2 
 tensorflow==1.15.0
 stocker==0.1.5
-urllib3==1.25.6
+urllib3==1.25.8
 yahoo-finance==1.4.0
 statsmodels==0.11.1
 stdiomask==0.0.3
