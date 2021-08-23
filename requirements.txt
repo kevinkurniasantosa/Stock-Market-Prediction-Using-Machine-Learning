@@ -18,7 +18,7 @@ nltk==3.4.5
 Keras==2.3.0
 httplib2==0.14.0
 beautifulsoup4==4.8.1
-notebook==6.0.1
+notebook==6.4.1
 yahoo-finance==1.4.0
 xlsxwriter==1.2.1
 openpyxl==3.0.0
